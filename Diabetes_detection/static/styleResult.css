@@ -1,0 +1,17 @@
+.bodyOfresult {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to top left, rgb(25, 25, 245), cyan);
+  margin-top: -50px;
+  height: 600px;
+  width: 100%;
+}
+
+.containerofresult {
+  max-width: 600px;
+  margin: auto;
+  transform: translateY(200px);
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
