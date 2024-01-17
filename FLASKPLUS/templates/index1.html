@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-ray Image Classification - AI Predictions</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index1.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='script/script1.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">X-ray Image Scanner</h1>
+        
+        <div class="file-section">
+            <input type="file" accept="image/*" id="inputImage" onchange="previewImage()">
+            <button onclick="predict()">Predict</button>
+        </div>
+
+        <div class="preview-section">
+            <img id="preview" alt="Preview Image">
+        </div>
+
+        <div class="result-section">
+            <h2>Prediction Result:</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        // Your existing JavaScript code remains unchanged
+        function previewImage() {
+            var input = document.getElementById('inputImage');
+            var preview = document.getElementById('preview');
+            var file = input.files[0];
+
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        function predict() {
+            var input = document.getElementById('inputImage');
+            var resultText = document.getElementById('result');
+
+            if (!input.files || input.files.length === 0) {
+                resultText.innerText = "Please select an image.";
+                return;
+            }
+
+            var file = input.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            $.ajax({
+                url: 'predict',  // Replace with the endpoint where you deploy the prediction server
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+    resultText.innerText = "Prediction: Probability - " + data.probability + ", Output - " + data.class;
+},
+
+                error: function () {
+                    resultText.innerText = "Error predicting the image.";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-color: #f96464;
+  margin: 0;
+  padding: 0;
+}
+
+body:hover {
+  background-color: #45a049;
+}
+
+h1 {
+  text-align: center;
+  color: #3498db; /* Change color for the heading */
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  color: #333; /* Change color for the additional text */
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+form:hover {
+  transform: scale(1.02);
+  background-color: #f0f0f0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+  animation: heartbeat 1s infinite, pump 1s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes pump {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Optional: Add some styling for responsiveness */
+@media only screen and (max-width: 600px) {
+  form {
+      margin: 20px;
+  }
+}

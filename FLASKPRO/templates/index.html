@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+<script type="text/javascript" src="{{ url_for('static',filename='script/script.js') }}">
+  
+</script>
+    <title>Medical Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #874caf;">Heart Disease Prediction</h1>
+
+    <p style="text-align: center; font-size: 18px;">Please enter the below medical information from your medical report:</p>
+
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter age (e.g., 40)" required>
+
+        <label for="sex">Sex (1.0 for Male, 0.0 for Female):</label>
+        <input type="text" id="sex" name="sex" placeholder="Enter sex (e.g., 1.0)" required>
+
+        <label for="chestPain">Chest Pain Type:</label>
+        <input type="text" id="chestPain" name="chestPain" placeholder="Enter chest pain type (e.g., 2.0)" required>
+
+        <label for="restingBPS">Resting Blood Pressure:</label>
+        <input type="text" id="restingBPS" name="restingBPS" placeholder="Enter resting BPS (e.g., 140.0)" required>
+
+        <label for="cholesterol">Cholesterol:</label>
+        <input type="text" id="cholesterol" name="cholesterol" placeholder="Enter cholesterol (e.g., 289.0)" required>
+
+        <label for="fastingBloodSugar">Fasting Blood Sugar (0.0 for No, 1.0 for Yes):</label>
+        <input type="text" id="fastingBloodSugar" name="fastingBloodSugar" placeholder="Enter fasting blood sugar (e.g., 0.0)" required>
+
+        <label for="restingECG">Resting ECG:</label>
+        <input type="text" id="restingECG" name="restingECG" placeholder="Enter resting ECG (e.g., 0)" required>
+
+        <label for="maxHeartRate">Max Heart Rate:</label>
+        <input type="text" id="maxHeartRate" name="maxHeartRate" placeholder="Enter max heart rate (e.g., 172.0)" required>
+
+        <label for="exerciseAngina">Exercise Angina (0 for No, 1 for Yes):</label>
+        <input type="text" id="exerciseAngina" name="exerciseAngina" placeholder="Enter exercise angina (e.g., 0)" required>
+
+        <label for="oldPeak">Old Peak:</label>
+        <input type="text" id="oldPeak" name="oldPeak" placeholder="Enter old peak (e.g., 0.0)" required>
+
+        <label for="STSlope">ST Slope:</label>
+        <input type="text" id="STSlope" name="STSlope" placeholder="Enter ST slope (e.g., 1)" required>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .result-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .prediction-result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #45a049;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        .prevention-text {
+            text-align: left;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result-container">
+        <h2>Heart Disease Prediction Result</h2>
+
+        {% if data == 1 %}
+            <p class="prediction-result">Prevention</p>
+            <div class="prevention-text">
+                <p>It seems that your heart is not healthy. Please consult a doctor using our Doctor Consultation Feature for fast and easy appointment booking.</p>
+                <p>The same lifestyle changes used to manage heart disease may also help prevent it. Try these heart-healthy tips:</p>
+                <ul>
+                    <li>Don't smoke.</li>
+                    <li>Eat a diet that's low in salt and saturated fat.</li>
+                    <li>Exercise at least 30 minutes a day on most days of the week.</li>
+                    <li>Maintain a healthy weight.</li>
+                    <li>Reduce and manage stress.</li>
+                    <li>Control high blood pressure, high cholesterol, and diabetes.</li>
+                    <li>Get good sleep. Adults should aim for 7 to 9 hours daily.</li>
+                </ul>
+            </div>
+        {% elif data == 0 %}
+            <p class="prediction-result">You don't have any heart disease</p>
+            <p>Be happy!! Your heart is fit!</p>
+        {% endif %}
+
+        <button class="back-btn" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
